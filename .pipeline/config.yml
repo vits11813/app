@@ -1,0 +1,15 @@
+general:
+  buildTool: "mta"
+
+stages:
+  Build:
+    npmExecuteLint: true
+
+  Additional Unit Tests:
+    npmExecuteScripts: false
+
+  Acceptance:
+    cloudFoundryDeploy: false
+
+  Release:
+    cloudFoundryDeploy: true
