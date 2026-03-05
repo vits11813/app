@@ -1,0 +1,28 @@
+### Project Piper Configuration ###
+general:
+  buildTool: 'mta'
+
+steps:
+  artifactPrepareVersion:
+    versioningType: 'cloud_noTag'
+  
+  npmExecuteLint:
+    failOnError: true
+
+stages:
+  Acceptance:
+    cloudFoundryDeploy: true
+    cfApiEndpoint: "https://api.cf.eu10.hana.ondemand.com"
+    cfOrg: "YOUR_ORG_NAME"
+    cfSpace: "dev"
+    cfAppName: "app"
+    cfCredentialsId: "deploy-to-cf"
+
+  Release:
+    cloudFoundryDeploy: true
+    cfApiEndpoint: "https://api.cf.eu10.hana.ondemand.com"
+    cfOrg: "YOUR_ORG_NAME"
+    cfSpace: "prod"
+    cfAppName: "app"
+    cfCredentialsId: "deploy-to-cf"
+    tmsUpload: false
